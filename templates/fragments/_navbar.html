@@ -1,0 +1,14 @@
+{% url 'catalogo:lista_filmes' as url_catalogo %}
+<header class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <a href="{{ url_catalogo }}" class="logo" aria-label="Cineart, página inicial">
+      <span class="logo__mark" aria-hidden="true"></span>cineart
+    </a>
+    <nav class="navbar__links">
+      <a href="{{ url_catalogo }}" class="is-active">Catálogo</a>
+      <button type="button" class="chip-btn" id="btn-minha-lista" aria-pressed="false">
+        Minha lista <span class="badge" id="contador-lista">0</span>
+      </button>
+    </nav>
+  </div>
+</header>

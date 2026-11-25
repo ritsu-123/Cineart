@@ -1,0 +1,17 @@
+<dialog class="modal" id="modal-filme" aria-labelledby="modal-titulo">
+  <div class="modal__corpo">
+    <button type="button" class="modal__fechar" data-fechar aria-label="Fechar">×</button>
+    <div class="modal__capa poster" id="modal-capa"><span class="poster__inicial" id="modal-inicial"></span></div>
+    <div class="modal__texto">
+      <span class="tag" id="modal-categoria"></span>
+      <h2 id="modal-titulo"></h2>
+      <p class="modal__meta"><span id="modal-ano"></span> · <span id="modal-duracao"></span> · ★ <span id="modal-nota"></span></p>
+      <p class="modal__diretor">Direção: <strong id="modal-diretor"></strong></p>
+      <p class="modal__sinopse" id="modal-sinopse"></p>
+      <div class="modal__acoes">
+        <button type="button" class="btn btn--primary" id="modal-fav">+ Minha lista</button>
+        <button type="button" class="btn btn--ghost" data-fechar>Fechar</button>
+      </div>
+    </div>
+  </div>
+</dialog>

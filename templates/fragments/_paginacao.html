@@ -1,0 +1,20 @@
+{# Espera: page_obj, paginator, querystring #}
+{% if paginator.num_pages > 1 %}
+<nav class="paginacao" aria-label="Paginação">
+  {% if page_obj.has_previous %}
+    <a class="btn btn--ghost" rel="prev"
+       href="?{% if querystring %}{{ querystring }}&{% endif %}page={{ page_obj.previous_page_number }}">← Anterior</a>
+  {% else %}
+    <span class="btn btn--ghost is-disabled" aria-disabled="true">← Anterior</span>
+  {% endif %}
+
+  <span class="paginacao__status">Página <strong>{{ page_obj.number }}</strong> de <strong>{{ paginator.num_pages }}</strong></span>
+
+  {% if page_obj.has_next %}
+    <a class="btn btn--ghost" rel="next"
+       href="?{% if querystring %}{{ querystring }}&{% endif %}page={{ page_obj.next_page_number }}">Próxima →</a>
+  {% else %}
+    <span class="btn btn--ghost is-disabled" aria-disabled="true">Próxima →</span>
+  {% endif %}
+</nav>
+{% endif %}

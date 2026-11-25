@@ -1,0 +1,30 @@
+{# Espera: filme #}
+<article class="card" tabindex="0" role="button" aria-label="Ver detalhes de {{ filme.titulo }}"
+         data-id="{{ filme.pk }}"
+         data-titulo="{{ filme.titulo }}"
+         data-sinopse="{{ filme.sinopse }}"
+         data-ano="{{ filme.ano }}"
+         data-duracao="{{ filme.duracao_formatada }}"
+         data-nota="{{ filme.nota|floatformat:1 }}"
+         data-diretor="{{ filme.diretor.nome }}"
+         data-categoria="{{ filme.categoria.nome }}"
+         data-capa="{{ filme.capa_url }}"
+         data-hue="{{ filme.hue }}">
+  <div class="poster" style="--hue: {{ filme.hue }}">
+    {% if filme.capa_url %}
+      <img src="{{ filme.capa_url }}" alt="Capa de {{ filme.titulo }}" loading="lazy">
+    {% else %}
+      <span class="poster__inicial">{{ filme.titulo|slice:":1" }}</span>
+    {% endif %}
+    <span class="poster__nota">★ {{ filme.nota|floatformat:1 }}</span>
+    <button type="button" class="fav" data-fav aria-label="Adicionar à minha lista" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.4-9.5 9-9.5 9Z"/></svg>
+    </button>
+  </div>
+  <div class="card__info">
+    <h3 class="card__titulo">{{ filme.titulo }}</h3>
+    <p class="card__meta">{{ filme.ano }} · {{ filme.duracao_formatada }}</p>
+    <p class="card__diretor">{{ filme.diretor.nome }}</p>
+    <span class="tag">{{ filme.categoria.nome }}</span>
+  </div>
+</article>
